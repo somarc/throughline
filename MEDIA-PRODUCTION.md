@@ -84,6 +84,37 @@ continuity checklist.
 - one restrained camera drift and atmospheric motion; no cuts or new action;
 - Panel 01 remains the LCP and reduced-motion experience.
 
+### Zero Data Retention teams
+
+xAI's ZDR contract does not let Imagine retain a generated video long enough
+to return its normal hosted URL. Grok Build therefore requires a caller-owned,
+S3-compatible destination and creates short-lived signed PUT/GET URLs itself.
+An operator or platform administrator—not an agent and never a committed
+file—must provision the following user/managed Grok setting:
+
+```toml
+[tools]
+disable_zdr_incompatible_tools = true
+
+[tools.zdr_video_output_s3]
+bucket = "<team-owned-bucket>"
+endpoint = "https://<s3-compatible-endpoint>"
+region = "<region>"
+key_prefix = "throughline/grok-videos"
+expires_secs = 900
+
+[tools.zdr_video_output_s3.read_write]
+access_key_id = "<operator-provisioned>"
+secret_access_key = "<operator-provisioned>"
+```
+
+The tracked pipeline forces Grok's ZDR-safe tool mode. With valid managed
+storage, `image_to_video` uploads through the signed URL, Grok downloads the
+result into its managed session folder, and the normal collector proves and
+normalizes it. Without that setting the optional video leg refuses cleanly and
+the poster-first site remains valid. Never weaken ZDR, expose credentials, or
+replace the requested Imagine video with a local fake.
+
 Technical validation is necessary but not visual approval. Review the plate
 sequence for character identity, Michael's design, motif state, safe crops,
 hands/faces, unwanted text, and theological tone before upload.

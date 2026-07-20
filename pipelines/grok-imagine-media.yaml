@@ -155,7 +155,7 @@ steps:
     timeout: 2m
 
   - id: imagine-video
-    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/the-drift-video.md --output-format json --permission-mode bypassPermissions --tools "image_to_video" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/the-drift-video.run.json'
+    command: 'GROK_DISABLE_ZDR_INCOMPATIBLE_TOOLS=1 /Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/the-drift-video.md --output-format json --permission-mode bypassPermissions --tools "image_to_video" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/the-drift-video.run.json'
     depends_on: [collect-sources]
     requires_approval: true
     timeout: 30m
