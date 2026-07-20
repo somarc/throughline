@@ -279,6 +279,40 @@
   font-style: italic;
 }
 
+@media (width < 900px) {
+  .storyboard-panel-stage {
+    display: block;
+    min-height: 0;
+  }
+
+  .storyboard-panel-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--panel-field);
+  }
+
+  .storyboard-panel-media img {
+    object-fit: contain;
+    object-position: center;
+    transform: none;
+  }
+
+  .storyboard-panel-copy,
+  .storyboard-panel.panel-even .storyboard-panel-copy {
+    width: 100%;
+    margin: 0;
+    border-right: 0;
+    border-left: 0;
+    background: linear-gradient(180deg, var(--panel-field), var(--ink));
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .storyboard-panel-stage::before {
+    background: linear-gradient(180deg, transparent 30%, var(--panel-field) 57%, var(--ink) 100%);
+  }
+}
+
 @media (width >= 600px) {
   .storyboard-panel-copy {
     margin-right: var(--page-gutter);

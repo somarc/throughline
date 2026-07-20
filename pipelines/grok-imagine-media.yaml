@@ -106,9 +106,21 @@ steps:
     requires_approval: true
     timeout: 2m
 
+  - id: imagine-panel-06-refine
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-06-outwitting-refine.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-06-refine.run.json'
+    depends_on: [collect-panel-06]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-06-refine
+    command: 'node tools/collect-grok-media.cjs image panel-06-outwitting image_edit .da/media-staging/panel-06-refine.run.json'
+    depends_on: [imagine-panel-06-refine]
+    requires_approval: true
+    timeout: 2m
+
   - id: imagine-panel-07
     command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-07-the-tapestry-complete.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-07.run.json'
-    depends_on: [collect-panel-06]
+    depends_on: [collect-panel-06-refine]
     requires_approval: true
     timeout: 20m
 

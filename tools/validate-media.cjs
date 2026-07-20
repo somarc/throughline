@@ -40,7 +40,7 @@ const IMAGE_ASSETS = [
     name: 'panel-05-the-battle-within', prompt: 'media/briefs/panel-05-the-battle-within.md', route: '/media/tapestry/panel-05-the-battle-within.webp', tool: 'image_edit', role: 'Panel 05 · The Battle Within',
   },
   {
-    name: 'panel-06-outwitting', prompt: 'media/briefs/panel-06-outwitting.md', route: '/media/tapestry/panel-06-outwitting.webp', tool: 'image_edit', role: 'Panel 06 · Outwitting',
+    name: 'panel-06-outwitting', prompt: ['media/briefs/panel-06-outwitting.md', 'media/briefs/panel-06-outwitting-refine.md'], route: '/media/tapestry/panel-06-outwitting.webp', tool: 'image_edit', role: 'Panel 06 · Outwitting',
   },
   {
     name: 'panel-07-the-tapestry-complete', prompt: 'media/briefs/panel-07-the-tapestry-complete.md', route: '/media/tapestry/panel-07-the-tapestry-complete.webp', tool: 'image_edit', role: 'Panel 07 · The Tapestry Complete',
@@ -233,13 +233,15 @@ function inspectVideo() {
 }
 
 function promptRecord(asset) {
-  const path = resolve(asset.prompt);
-  return {
-    asset: asset.name,
-    path: relative(path),
-    sha256: sha256(path),
-    requiredTool: asset.tool,
-  };
+  return [asset.prompt].flat().map((prompt) => {
+    const path = resolve(prompt);
+    return {
+      asset: asset.name,
+      path: relative(path),
+      sha256: sha256(path),
+      requiredTool: asset.tool,
+    };
+  });
 }
 
 function escapeHtml(value) {
@@ -359,7 +361,7 @@ function main() {
       collector: { path: 'tools/collect-grok-media.cjs', sha256: sha256(resolve('tools/collect-grok-media.cjs')) },
       validator: { path: 'tools/validate-media.cjs', sha256: sha256(resolve('tools/validate-media.cjs')) },
     },
-    prompts: [...IMAGE_ASSETS, VIDEO_ASSET].map(promptRecord),
+    prompts: [...IMAGE_ASSETS, VIDEO_ASSET].flatMap(promptRecord),
     files: [...images, ...(video ? [video] : [])],
     videoStatus: video ? 'validated' : 'not-present',
     claims: {
