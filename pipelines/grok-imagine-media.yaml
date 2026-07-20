@@ -168,8 +168,14 @@ steps:
     timeout: 3m
     continue_on_error: true
 
+  - id: finish-video-loop
+    command: 'node tools/finish-grok-loop.cjs --optional'
+    depends_on: [collect-video]
+    requires_approval: true
+    timeout: 3m
+
   - id: validate-and-plan
     command: 'node tools/validate-media.cjs --plan'
-    depends_on: [collect-video]
+    depends_on: [finish-video-loop]
     requires_approval: true
     timeout: 2m

@@ -16,6 +16,7 @@ const { extname, join, resolve } = require('node:path');
 const STAGE = resolve('.da/media-staging');
 const MANIFEST = resolve(STAGE, 'manifest.json');
 const REVIEW = resolve(STAGE, 'review.html');
+const LOOP_REPORT = resolve(STAGE, 'the-drift-loop.loop.json');
 const PIPELINE = resolve('pipelines/grok-imagine-media.yaml');
 const SANDBOX = resolve('.grok/sandbox.toml');
 const MEDIA_EXTENSIONS = new Set(['.mp4', '.webm', '.webp', '.jpg', '.jpeg', '.png']);
@@ -207,7 +208,15 @@ function inspectVideo() {
 
   const collector = readCollector(VIDEO_ASSET);
   const digest = sha256(path);
-  if (collector.outputSha256 !== digest) throw new Error('Video hash does not match collector evidence');
+  if (!existsSync(LOOP_REPORT)) throw new Error(`Missing loop finish evidence: ${relative(LOOP_REPORT)}`);
+  const loop = JSON.parse(readFileSync(LOOP_REPORT, 'utf8'));
+  if (loop.input?.sha256 !== collector.outputSha256) {
+    throw new Error('Loop input hash does not match collector evidence');
+  }
+  if (loop.output?.sha256 !== digest) throw new Error('Loop output hash does not match final video');
+  if (!Number.isFinite(loop.output?.seamSsim) || loop.output.seamSsim < 0.95) {
+    throw new Error(`Loop seam SSIM ${loop.output?.seamSsim} is below 0.95`);
+  }
   return {
     name: VIDEO_ASSET.name,
     role: VIDEO_ASSET.role,
@@ -229,6 +238,12 @@ function inspectVideo() {
     audioStreams: 0,
     sourceQualityWarning: collector.sourceMedia?.qualityWarning || null,
     collector,
+    loop: {
+      path: relative(LOOP_REPORT),
+      sha256: sha256(LOOP_REPORT),
+      method: loop.method,
+      seamSsim: loop.output.seamSsim,
+    },
   };
 }
 

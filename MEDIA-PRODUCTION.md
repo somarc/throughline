@@ -83,6 +83,8 @@ continuity checklist.
 - approximately six seconds, 20–60 fps, no audio, fast-start;
 - one restrained camera drift and atmospheric motion; no cuts or new action;
 - Panel 01 remains the LCP and reduced-motion experience.
+- the tracked FFmpeg finish crossfades the final second into a held first frame
+  and must prove first/last-frame SSIM of at least 0.95 before delivery.
 
 ### Zero Data Retention teams
 
