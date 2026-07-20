@@ -1,0 +1,99 @@
+name: throughline-tapestry-construct
+# Git fixtures and reviewed Grok outputs are upstream of DA.
+# Root --commit is the sole remote mutation boundary.
+# This construct stops at feature preview and never publishes live.
+context:
+  org: somarc
+  repo: throughline
+  branch: feature-throughline-tapestry
+steps:
+  - id: put-panel-01
+    command: content put /media/tapestry/panel-01-the-drift.webp .da/media-staging/panel-01-the-drift.webp --format json
+
+  - id: put-panel-02
+    command: content put /media/tapestry/panel-02-the-chains-of-fear.webp .da/media-staging/panel-02-the-chains-of-fear.webp --format json
+    depends_on: [put-panel-01]
+
+  - id: put-panel-03
+    command: content put /media/tapestry/panel-03-the-awakening.webp .da/media-staging/panel-03-the-awakening.webp --format json
+    depends_on: [put-panel-02]
+
+  - id: put-panel-04
+    command: content put /media/tapestry/panel-04-the-guardian-appears.webp .da/media-staging/panel-04-the-guardian-appears.webp --format json
+    depends_on: [put-panel-03]
+
+  - id: put-panel-05
+    command: content put /media/tapestry/panel-05-the-battle-within.webp .da/media-staging/panel-05-the-battle-within.webp --format json
+    depends_on: [put-panel-04]
+
+  - id: put-panel-06
+    command: content put /media/tapestry/panel-06-outwitting.webp .da/media-staging/panel-06-outwitting.webp --format json
+    depends_on: [put-panel-05]
+
+  - id: put-panel-07
+    command: content put /media/tapestry/panel-07-the-tapestry-complete.webp .da/media-staging/panel-07-the-tapestry-complete.webp --format json
+    depends_on: [put-panel-06]
+
+  - id: put-about-plate
+    command: content put /media/tapestry/about-origin.webp .da/media-staging/about-origin.webp --format json
+    depends_on: [put-panel-07]
+
+  - id: put-sources-plate
+    command: content put /media/tapestry/sources-manuscript.webp .da/media-staging/sources-manuscript.webp --format json
+    depends_on: [put-about-plate]
+
+  - id: put-hero-loop
+    command: content put /media/tapestry/the-drift-loop.mp4 .da/media-staging/the-drift-loop.mp4 --format json
+    depends_on: [put-sources-plate]
+
+  - id: put-nav
+    command: content put /nav.html content/nav.html --strict-media-urls --format json
+    depends_on: [put-hero-loop]
+
+  - id: preview-nav
+    command: preview page /nav --yes --format json
+    depends_on: [put-nav]
+
+  - id: put-footer
+    command: content put /footer.html content/footer.html --strict-media-urls --format json
+    depends_on: [preview-nav]
+
+  - id: preview-footer
+    command: preview page /footer --yes --format json
+    depends_on: [put-footer]
+
+  - id: put-index
+    command: content put /index.html content/index.html --strict-media-urls --format json
+    depends_on: [preview-footer]
+
+  - id: preview-index
+    command: preview page /index --yes --format json
+    depends_on: [put-index]
+
+  - id: put-about
+    command: content put /about.html content/about.html --strict-media-urls --format json
+    depends_on: [preview-index]
+
+  - id: preview-about
+    command: preview page /about --yes --format json
+    depends_on: [put-about]
+
+  - id: put-sources
+    command: content put /sources.html content/sources.html --strict-media-urls --format json
+    depends_on: [preview-about]
+
+  - id: preview-sources
+    command: preview page /sources --yes --format json
+    depends_on: [put-sources]
+
+  - id: explain-index
+    command: preview explain /index --format json
+    depends_on: [preview-sources]
+
+  - id: explain-about
+    command: preview explain /about --format json
+    depends_on: [explain-index]
+
+  - id: explain-sources
+    command: preview explain /sources --format json
+    depends_on: [explain-about]

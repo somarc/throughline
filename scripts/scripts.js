@@ -143,6 +143,46 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies authored section metadata before the boilerplate wraps section content.
+ * @param {HTMLElement} main The main element
+ */
+function applySectionMetadata(main) {
+  main.querySelectorAll(':scope > div').forEach((section) => {
+    const metadata = section.querySelector(':scope > .section-metadata');
+    if (!metadata) return;
+    [...metadata.children].forEach((row) => {
+      const cells = [...row.children];
+      const key = cells[0]?.textContent.trim().toLowerCase();
+      const value = cells[1]?.textContent.trim();
+      if ((key === 'style' || key === 'class') && value) {
+        value.split(',').map((name) => name.trim()).filter(Boolean)
+          .forEach((name) => section.classList.add(name));
+      }
+    });
+    metadata.remove();
+  });
+}
+
+/**
+ * Adds the small amount of document chrome that must not depend on authored blocks.
+ * @param {Document} doc The current document
+ */
+function decoratePageSemantics(doc) {
+  const main = doc.querySelector('main');
+  if (!main) return;
+  main.id = main.id || 'main-content';
+  if (main.querySelector('.tapestry-hero')) doc.body.classList.add('tapestry-page');
+
+  if (!doc.querySelector('.skip-link')) {
+    const skip = doc.createElement('a');
+    skip.className = 'skip-link';
+    skip.href = `#${main.id}`;
+    skip.textContent = 'Skip to main content';
+    doc.body.prepend(skip);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -150,6 +190,7 @@ function decorateButtons(main) {
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  applySectionMetadata(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
@@ -162,6 +203,7 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  decoratePageSemantics(doc);
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);

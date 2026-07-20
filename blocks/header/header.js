@@ -131,7 +131,7 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
+  const brandLink = navBrand?.querySelector('.button');
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
@@ -150,6 +150,12 @@ export default async function decorate(block) {
       });
     });
   }
+
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+  nav.querySelectorAll('a[href]').forEach((link) => {
+    const targetPath = new URL(link.href, window.location.href).pathname.replace(/\/$/, '') || '/';
+    if (targetPath === currentPath) link.setAttribute('aria-current', 'page');
+  });
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

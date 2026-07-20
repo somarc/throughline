@@ -1,0 +1,16 @@
+[profiles.throughline-media]
+extends = "strict"
+restrict_network = true
+read_only = ["/Users/mhess/marc_projects/throughline"]
+read_write = ["/Users/mhess/marc_projects/throughline/.da/media-staging"]
+deny = [
+  "/Users/mhess/marc_projects/throughline/.git",
+  "/Users/mhess/marc_projects/throughline/.da.json",
+  "/Users/mhess/.aem",
+  "/Users/mhess/.ssh",
+  "/Users/mhess/.config/gh",
+  "/Users/mhess/.grok/auth.json",
+  "**/.env",
+  "**/*.pem",
+  "**/*.key",
+]

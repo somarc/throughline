@@ -1,0 +1,9 @@
+# Grok Imagine task — Panel 01 · The Drift
+
+Use the only available visual tool, `image_edit`, exactly once. Use `.da/media-staging/throughline-character-lock.webp` as the identity reference and preserve the exact protagonist face, hair, age, build, slate cloak, and Michael armor, wings, shield, and sword. Request a 16:9 result. Do not use any other tool or create files; leave the raw result in the session-managed `images/` folder for the reviewed collector.
+
+Create Panel 01 of one continuous tapestry. The same protagonist is waist-deep in a violent storm sea at night, genuinely endangered but still dignified, bound by two heavy iron chains around torso and wrists. A vast devil-like pressure looms in thundercloud and weather above—abstract horned shadow and whispering atmosphere, not a detailed monster. On a distant high cliff in the upper-right, the same Saint Michael watches with flaming sword lowered, small but unmistakably luminous. One faint fixed-star spark appears beyond him.
+
+Composition must reserve a broad dark, low-detail safe zone across the left and lower-left for large white website typography while keeping the protagonist readable near center and Michael toward upper-right. This is the cold opening: deep indigo, slate, charcoal, storm green-blue, only one small candle-gold spark. Chains intact; sea and Devil volume maximal; Michael distant; golden thread not yet visible.
+
+Shared style DNA: dramatic symbolic oil-painting cinematic still, Renaissance chiaroscuro meeting modern film lighting, painterly brush presence, atmospheric depth, subtle film grain, sacred seriousness without kitsch. One primary action. No text, labels, logos, watermark, UI, gore, cartoon Devil, plastic 3D, fantasy-game splash art, purple neon, or extra characters. End after the single successful `image_edit` call.
