@@ -10,45 +10,85 @@ steps:
   - id: put-panel-01
     command: content put /media/tapestry/panel-01-the-drift.webp .da/media-staging/panel-01-the-drift.webp --format json
 
+  - id: preview-panel-01
+    command: preview page /media/tapestry/panel-01-the-drift.webp --yes --format json
+    depends_on: [put-panel-01]
+
   - id: put-panel-02
     command: content put /media/tapestry/panel-02-the-chains-of-fear.webp .da/media-staging/panel-02-the-chains-of-fear.webp --format json
-    depends_on: [put-panel-01]
+    depends_on: [preview-panel-01]
+
+  - id: preview-panel-02
+    command: preview page /media/tapestry/panel-02-the-chains-of-fear.webp --yes --format json
+    depends_on: [put-panel-02]
 
   - id: put-panel-03
     command: content put /media/tapestry/panel-03-the-awakening.webp .da/media-staging/panel-03-the-awakening.webp --format json
-    depends_on: [put-panel-02]
+    depends_on: [preview-panel-02]
+
+  - id: preview-panel-03
+    command: preview page /media/tapestry/panel-03-the-awakening.webp --yes --format json
+    depends_on: [put-panel-03]
 
   - id: put-panel-04
     command: content put /media/tapestry/panel-04-the-guardian-appears.webp .da/media-staging/panel-04-the-guardian-appears.webp --format json
-    depends_on: [put-panel-03]
+    depends_on: [preview-panel-03]
+
+  - id: preview-panel-04
+    command: preview page /media/tapestry/panel-04-the-guardian-appears.webp --yes --format json
+    depends_on: [put-panel-04]
 
   - id: put-panel-05
     command: content put /media/tapestry/panel-05-the-battle-within.webp .da/media-staging/panel-05-the-battle-within.webp --format json
-    depends_on: [put-panel-04]
+    depends_on: [preview-panel-04]
+
+  - id: preview-panel-05
+    command: preview page /media/tapestry/panel-05-the-battle-within.webp --yes --format json
+    depends_on: [put-panel-05]
 
   - id: put-panel-06
     command: content put /media/tapestry/panel-06-outwitting.webp .da/media-staging/panel-06-outwitting.webp --format json
-    depends_on: [put-panel-05]
+    depends_on: [preview-panel-05]
+
+  - id: preview-panel-06
+    command: preview page /media/tapestry/panel-06-outwitting.webp --yes --format json
+    depends_on: [put-panel-06]
 
   - id: put-panel-07
     command: content put /media/tapestry/panel-07-the-tapestry-complete.webp .da/media-staging/panel-07-the-tapestry-complete.webp --format json
-    depends_on: [put-panel-06]
+    depends_on: [preview-panel-06]
+
+  - id: preview-panel-07
+    command: preview page /media/tapestry/panel-07-the-tapestry-complete.webp --yes --format json
+    depends_on: [put-panel-07]
 
   - id: put-about-plate
     command: content put /media/tapestry/about-origin.webp .da/media-staging/about-origin.webp --format json
-    depends_on: [put-panel-07]
+    depends_on: [preview-panel-07]
+
+  - id: preview-about-plate
+    command: preview page /media/tapestry/about-origin.webp --yes --format json
+    depends_on: [put-about-plate]
 
   - id: put-sources-plate
     command: content put /media/tapestry/sources-manuscript.webp .da/media-staging/sources-manuscript.webp --format json
-    depends_on: [put-about-plate]
+    depends_on: [preview-about-plate]
+
+  - id: preview-sources-plate
+    command: preview page /media/tapestry/sources-manuscript.webp --yes --format json
+    depends_on: [put-sources-plate]
 
   - id: put-hero-loop
     command: content put /media/tapestry/the-drift-loop.mp4 .da/media-staging/the-drift-loop.mp4 --format json
-    depends_on: [put-sources-plate]
+    depends_on: [preview-sources-plate]
+
+  - id: preview-hero-loop
+    command: preview page /media/tapestry/the-drift-loop.mp4 --yes --format json
+    depends_on: [put-hero-loop]
 
   - id: put-nav
     command: content put /nav.html content/nav.html --strict-media-urls --format json
-    depends_on: [put-hero-loop]
+    depends_on: [preview-hero-loop]
 
   - id: preview-nav
     command: preview page /nav --yes --format json
