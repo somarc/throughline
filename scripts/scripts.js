@@ -163,6 +163,47 @@ function applySectionMetadata(main) {
   });
 }
 
+function setMeta(name, content, property = false) {
+  if (!content) return;
+  const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+  let meta = document.head.querySelector(selector);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(property ? 'property' : 'name', name);
+    document.head.append(meta);
+  }
+  meta.content = content;
+}
+
+/**
+ * Keeps checked-in fixtures useful in local render loops while matching the
+ * metadata tags EDS creates from the same block in preview.
+ * @param {HTMLElement} main The main element
+ */
+function applyPageMetadata(main) {
+  main.querySelectorAll(':scope > div > .metadata').forEach((metadata) => {
+    const values = {};
+    [...metadata.children].forEach((row) => {
+      const cells = [...row.children];
+      const key = cells[0]?.textContent.trim().toLowerCase();
+      const value = cells[1]?.textContent.trim();
+      if (key && value) values[key] = value;
+    });
+
+    if (values.title) document.title = values.title;
+    setMeta('description', values.description);
+    setMeta('og:title', values.title, true);
+    setMeta('og:description', values.description, true);
+    setMeta('og:image', values.image, true);
+    if (values.template) document.body.classList.add(values.template);
+    if (values.theme) document.body.classList.add(values.theme);
+
+    const section = metadata.parentElement;
+    metadata.remove();
+    if (section && !section.textContent.trim() && !section.children.length) section.remove();
+  });
+}
+
 /**
  * Adds the small amount of document chrome that must not depend on authored blocks.
  * @param {Document} doc The current document
@@ -190,6 +231,7 @@ function decoratePageSemantics(doc) {
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  applyPageMetadata(main);
   applySectionMetadata(main);
   decorateSections(main);
   decorateBlocks(main);

@@ -154,7 +154,7 @@ export default async function decorate(block) {
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   nav.querySelectorAll('a[href]').forEach((link) => {
     const targetPath = new URL(link.href, window.location.href).pathname.replace(/\/$/, '') || '/';
-    if (targetPath === currentPath) link.setAttribute('aria-current', 'page');
+    if (targetPath === currentPath && !link.hash) link.setAttribute('aria-current', 'page');
   });
 
   // hamburger for mobile

@@ -134,6 +134,9 @@ export default function decorate(block) {
   const insight = document.createElement('div');
   insight.className = 'tapestry-hero-insight';
   moveRow(rows[4], insight);
+  insight.querySelectorAll('p > blockquote:only-child').forEach((quote) => {
+    quote.parentElement.replaceWith(quote);
+  });
 
   const actions = document.createElement('div');
   actions.className = 'tapestry-hero-actions';
