@@ -9,7 +9,6 @@ deny = [
   "/Users/mhess/.aem",
   "/Users/mhess/.ssh",
   "/Users/mhess/.config/gh",
-  "/Users/mhess/.grok/auth.json",
   "**/.env",
   "**/*.pem",
   "**/*.key",
