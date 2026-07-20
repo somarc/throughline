@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "throughline-provenance.v1",
+  "capturedAt": "2026-07-20T18:42:01Z",
+  "vision": {
+    "repository": "https://github.com/somarc/through-line-sites",
+    "commit": "4519f0b991a4cc87f19d7b66d000edad0a47b5ad"
+  },
+  "implementation": {
+    "repository": "https://github.com/somarc/throughline",
+    "branch": "feature-throughline-tapestry",
+    "commit": "ee02057077a9cbfe3bbd130f6cf7d15ed2123f85"
+  },
+  "operator": {
+    "package": "@somarc/da-cli",
+    "version": "0.5.1",
+    "constructionSha": "18877d6",
+    "dogfoodFixPullRequest": "https://github.com/somarc/da-cli/pull/46"
+  },
+  "generation": {
+    "generator": "grok 0.2.106 (bde89716f679) [stable]",
+    "riverboatRunId": "b16e243a",
+    "manifest": "dogfood/evidence/media-manifest.json",
+    "plan": "dogfood/evidence/media-plan.json",
+    "trustBoundary": "reviewed Riverboat YAML; generation performs no DA write"
+  },
+  "construction": {
+    "pipeline": "dogfood/construct.yaml",
+    "runId": "59162fbc",
+    "status": "completed",
+    "steps": 33,
+    "plan": "dogfood/evidence/construct-plan.json",
+    "result": "dogfood/evidence/construct-result.json"
+  },
+  "routes": [
+    {
+      "path": "/",
+      "fixture": "content/index.html",
+      "preview": "https://feature-throughline-tapestry--throughline--somarc.aem.page/"
+    },
+    {
+      "path": "/about",
+      "fixture": "content/about.html",
+      "preview": "https://feature-throughline-tapestry--throughline--somarc.aem.page/about"
+    },
+    {
+      "path": "/sources",
+      "fixture": "content/sources.html",
+      "preview": "https://feature-throughline-tapestry--throughline--somarc.aem.page/sources"
+    }
+  ],
+  "validation": {
+    "auditFull": "dogfood/evidence/audit-full.json",
+    "auditContracts": "dogfood/evidence/audit-contracts.json",
+    "designAudit": "dogfood/evidence/design-audit.json",
+    "freshness": "dogfood/evidence/freshness.json",
+    "routeOwnership": "dogfood/evidence/route-classify.json",
+    "visualQa": "dogfood/evidence/media-visual-qa.md"
+  },
+  "boundaries": {
+    "livePublished": false,
+    "publishRequiresExplicitHumanApproval": true
+  }
+}

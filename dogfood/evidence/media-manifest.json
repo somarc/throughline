@@ -1,0 +1,490 @@
+{
+  "schemaVersion": "throughline-media.v1",
+  "generatedAt": "2026-07-20T18:39:12.025Z",
+  "vision": {
+    "repository": "https://github.com/somarc/through-line-sites",
+    "commit": "4519f0b991a4cc87f19d7b66d000edad0a47b5ad"
+  },
+  "trustBoundary": "da-cli --riverboat-gambler / reviewed local YAML / no DA write",
+  "generator": "grok 0.2.106 (bde89716f679) [stable]",
+  "git": {
+    "branch": "feature-throughline-tapestry",
+    "commit": "ee02057077a9cbfe3bbd130f6cf7d15ed2123f85",
+    "dirty": false
+  },
+  "controls": {
+    "pipeline": {
+      "path": "pipelines/grok-imagine-media.yaml",
+      "sha256": "71f621959448978535b1094a153979d152668eab9f22d35c07ef9864e11a5610"
+    },
+    "sandbox": {
+      "path": ".grok/sandbox.toml",
+      "sha256": "61e1a7ac55cf4a60125137233fe2b3b97aa8ebe8afdd9f80f7af28ea61a3b62a"
+    },
+    "collector": {
+      "path": "tools/collect-grok-media.cjs",
+      "sha256": "319be77d0726ee2e31f019d34dc741c5b3565e5a94232d5af063295554e1d533"
+    },
+    "validator": {
+      "path": "tools/validate-media.cjs",
+      "sha256": "19f39ed183e0e4f2f65886d60af1303a1e374e023aa4b29873731c20aad2e5bd"
+    }
+  },
+  "prompts": [
+    {
+      "asset": "throughline-character-lock",
+      "path": "media/briefs/character-lock.md",
+      "sha256": "91737ecd39982873860438cb4b0b8e0d7ca484e6e96bf215b3f6708282eae80e",
+      "requiredTool": "image_gen"
+    },
+    {
+      "asset": "panel-01-the-drift",
+      "path": "media/briefs/panel-01-the-drift.md",
+      "sha256": "02249e1b2ca20f3307888f04d48b2b912fe2149621c289e59b85c6cdfbcc092b",
+      "requiredTool": "image_edit"
+    },
+    {
+      "asset": "panel-02-the-chains-of-fear",
+      "path": "media/briefs/panel-02-the-chains-of-fear.md",
+      "sha256": "ac374bb70b9335b88e62ebf339f8de89276d402d76e0c184cb2dd7177ce3da66",
+      "requiredTool": "image_edit"
+    },
+    {
+      "asset": "panel-03-the-awakening",
+      "path": "media/briefs/panel-03-the-awakening.md",
+      "sha256": "87c6c2f39a33f128f0f7b03745eff0c75533cf6e4a7be96d224febfcce0b1039",
+      "requiredTool": "image_edit"
+    },
+    {
+      "asset": "panel-04-the-guardian-appears",
+      "path": "media/briefs/panel-04-the-guardian-appears.md",
+      "sha256": "02b4b2a7d2915b8cde21a26a0531707b750b14759f618c12da4033be0355555c",
+      "requiredTool": "image_edit"
+    },
+    {
+      "asset": "panel-05-the-battle-within",
+      "path": "media/briefs/panel-05-the-battle-within.md",
+      "sha256": "c30b6ec62619ffb7f01ccad6a4f0fe6b129c60d80c16ea79259853082f51cdb3",
+      "requiredTool": "image_edit"
+    },
+    {
+      "asset": "panel-06-outwitting",
+      "path": "media/briefs/panel-06-outwitting.md",
+      "sha256": "acb914506baa0c47882f0732acd730613da66a05d20bcd1bbaac2ea5c8d0fae5",
+      "requiredTool": "image_edit"
+    },
+    {
+      "asset": "panel-06-outwitting",
+      "path": "media/briefs/panel-06-outwitting-refine.md",
+      "sha256": "3e18ba8b5a53a79ccea275ef569fbe0b148e0b6782df01b3d177c2b57bb4129c",
+      "requiredTool": "image_edit"
+    },
+    {
+      "asset": "panel-07-the-tapestry-complete",
+      "path": "media/briefs/panel-07-the-tapestry-complete.md",
+      "sha256": "77d7d36f225d0f744c6a781993a393638300db145a550ef6a24f0879e2c32aaf",
+      "requiredTool": "image_edit"
+    },
+    {
+      "asset": "about-origin",
+      "path": "media/briefs/about-origin.md",
+      "sha256": "51050768392227a2d5bd517d41797fc54e81d76d54e7eba00d385443eafdbe81",
+      "requiredTool": "image_gen"
+    },
+    {
+      "asset": "sources-manuscript",
+      "path": "media/briefs/sources-manuscript.md",
+      "sha256": "49923a572e5293fd2bdceab4798f2905032dc282574dae2ae45e06bd25e5b366",
+      "requiredTool": "image_gen"
+    },
+    {
+      "asset": "the-drift-loop",
+      "path": "media/briefs/the-drift-video.md",
+      "sha256": "92498b00fc956d9a58a08440026e8afa4dbb17d1d1bd1b3cdcbcbf0ad73d464c",
+      "requiredTool": "image_to_video"
+    }
+  ],
+  "files": [
+    {
+      "name": "throughline-character-lock",
+      "role": "Character identity lock",
+      "path": ".da/media-staging/throughline-character-lock.webp",
+      "route": null,
+      "delivery": false,
+      "mime": "image/webp",
+      "bytes": 248478,
+      "sha256": "91815fb861519c5e2378927affb15521d840edc0c68021c9d2fb8f460b8d0a23",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/throughline-character-lock.collector.json",
+        "sha256": "714ec8bd0a005e966acd2d3e2218e2693f57cfae2f044fc9d426a4ac8d7d2a24",
+        "sessionId": "019f8094-73a1-7193-9383-cda0c6e64f44",
+        "tool": "image_gen",
+        "toolCallId": "call-2fb4d175-6048-4552-bc22-7f68b6478602-3",
+        "transcript": {
+          "sha256": "0990fb6ab260168213841fc5804f8fd88e32e0decec2186d8c3597d5fef7c59b",
+          "callEventIndex": 15,
+          "resultEventIndex": 17
+        },
+        "receipt": {
+          "path": ".da/media-staging/character-lock.run.json",
+          "sha256": "2d19844df38dabbb2f4d8ad81db6debbd5d1d06c3180317e40c9b319277f371c"
+        },
+        "sourceMedia": null,
+        "outputSha256": "91815fb861519c5e2378927affb15521d840edc0c68021c9d2fb8f460b8d0a23",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "panel-01-the-drift",
+      "role": "Panel 01 · The Drift",
+      "path": ".da/media-staging/panel-01-the-drift.webp",
+      "route": "/media/tapestry/panel-01-the-drift.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 159870,
+      "sha256": "d88b5765050a3ac971957b76d5aa64434c4f4e5106802f1b8f9da50f47cd017f",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/panel-01-the-drift.collector.json",
+        "sha256": "e736b5baa7f756b29e5b62e164d5d916a0481a45c1a37e40f2ac040c3b7ee439",
+        "sessionId": "019f8094-bf5d-7dd3-9248-7c7ec4d0e981",
+        "tool": "image_edit",
+        "toolCallId": "call-e524e2aa-92b6-4a98-b236-69bc495d2b33-0",
+        "transcript": {
+          "sha256": "41b870daf26ac681a252f8703a35231df2782a54979acecb29c458cdb4862df4",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/panel-01.run.json",
+          "sha256": "a853bf8b3382f0829265d8f9966c199a4c25e44d61b2ebf3be8e3b6200ab4500"
+        },
+        "sourceMedia": null,
+        "outputSha256": "d88b5765050a3ac971957b76d5aa64434c4f4e5106802f1b8f9da50f47cd017f",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "panel-02-the-chains-of-fear",
+      "role": "Panel 02 · The Chains of Fear",
+      "path": ".da/media-staging/panel-02-the-chains-of-fear.webp",
+      "route": "/media/tapestry/panel-02-the-chains-of-fear.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 201604,
+      "sha256": "41e850db17507e7ed5536da99f5e377e41811244166a781fee7ba87b5fde7016",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/panel-02-the-chains-of-fear.collector.json",
+        "sha256": "5956ce46fe04975ece38dd21f8cc529b1343a97a3c732ed327b713bb3dfed5fa",
+        "sessionId": "019f8095-1f1e-76e2-82fd-4480042abc90",
+        "tool": "image_edit",
+        "toolCallId": "call-d7f4dea4-a811-4a1c-a6f5-941c1c6f0b49-0",
+        "transcript": {
+          "sha256": "e549ff1ecebf74a4065432881920118272e11f62468874f0d20f43a3c20c2d57",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/panel-02.run.json",
+          "sha256": "90fccaf7fcbee4a2312fc2b39b523a3041bee4645833267fd5afdf98643fb184"
+        },
+        "sourceMedia": null,
+        "outputSha256": "41e850db17507e7ed5536da99f5e377e41811244166a781fee7ba87b5fde7016",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "panel-03-the-awakening",
+      "role": "Panel 03 · The Awakening",
+      "path": ".da/media-staging/panel-03-the-awakening.webp",
+      "route": "/media/tapestry/panel-03-the-awakening.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 176424,
+      "sha256": "258a1fad582e41c7d78081a300e4ccd54d79ff219dce5bc03c423e6cd98fc29a",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/panel-03-the-awakening.collector.json",
+        "sha256": "e15ea479b4a7342e1feff7c9b7bfe32bf508e5935afe44b479432637dca34708",
+        "sessionId": "019f8095-6fbc-7ca1-bf4d-d60dfae014a0",
+        "tool": "image_edit",
+        "toolCallId": "call-3dac5bf2-be25-4ac4-8e8d-7b187928bcde-0",
+        "transcript": {
+          "sha256": "0d72efc804153690ff8d7c783e7253cd27857c9ac00853de14ed66addfe9bf63",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/panel-03.run.json",
+          "sha256": "e32b10e2aaac2f3084abd5a268dcf2f352679b2835a78f26c8991ed16a7d888f"
+        },
+        "sourceMedia": null,
+        "outputSha256": "258a1fad582e41c7d78081a300e4ccd54d79ff219dce5bc03c423e6cd98fc29a",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "panel-04-the-guardian-appears",
+      "role": "Panel 04 · The Guardian Appears",
+      "path": ".da/media-staging/panel-04-the-guardian-appears.webp",
+      "route": "/media/tapestry/panel-04-the-guardian-appears.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 141754,
+      "sha256": "ce91cfbe121f54b56c63a37eb5816885b8ccfeb64c0b5cba66ef6d1a48f377b4",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/panel-04-the-guardian-appears.collector.json",
+        "sha256": "a8b8d3dccff8c9b9efa8d4c9ed5c65cf2d29a46310272a972b057371fdbe3825",
+        "sessionId": "019f8095-b59a-7e50-b461-6fb092d3bcb9",
+        "tool": "image_edit",
+        "toolCallId": "call-4d99e2fb-3c5c-4f08-8960-6ace042ddfe9-0",
+        "transcript": {
+          "sha256": "447c5a75af082dd5a547891f8efa397e5d302e087029414650312aa8edf84a3f",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/panel-04.run.json",
+          "sha256": "d7e751d1511a625bc34c0b0803024a5abae56eef7bc29b03e03052a10743101a"
+        },
+        "sourceMedia": null,
+        "outputSha256": "ce91cfbe121f54b56c63a37eb5816885b8ccfeb64c0b5cba66ef6d1a48f377b4",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "panel-05-the-battle-within",
+      "role": "Panel 05 · The Battle Within",
+      "path": ".da/media-staging/panel-05-the-battle-within.webp",
+      "route": "/media/tapestry/panel-05-the-battle-within.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 161552,
+      "sha256": "2682f2d9e05e6039f1aef9acf6aa3fbc419cb8299e9df3226fe69194071fceba",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/panel-05-the-battle-within.collector.json",
+        "sha256": "5c19457cc4c6b11157fd612e9463573f926bbcc153adcc2f5fc4ea542071ed6d",
+        "sessionId": "019f8095-fee4-79d1-94da-dda8019fa6d8",
+        "tool": "image_edit",
+        "toolCallId": "call-5a64c36b-d58c-4edc-802f-754e91bc8032-0",
+        "transcript": {
+          "sha256": "0fa757ba85ee134fcdc685442a0d4bd96f271a5a6fd261cae47e664ce0dc122f",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/panel-05.run.json",
+          "sha256": "d5be504fede3e662b44dc4d0bdfc21b8539c0d2413e79c7239ebdad6e85a9b4c"
+        },
+        "sourceMedia": null,
+        "outputSha256": "2682f2d9e05e6039f1aef9acf6aa3fbc419cb8299e9df3226fe69194071fceba",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "panel-06-outwitting",
+      "role": "Panel 06 · Outwitting",
+      "path": ".da/media-staging/panel-06-outwitting.webp",
+      "route": "/media/tapestry/panel-06-outwitting.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 145764,
+      "sha256": "abcf3ed7f4dbe37bd97b36f0e8ce6118f645a6ab4784553063efcfbd6456901f",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/panel-06-outwitting.collector.json",
+        "sha256": "af3d3f5ace684e4813dbbff4d77782d8b8f5ea734ea6158b641dcfe1bb28787d",
+        "sessionId": "019f80c0-6590-7633-9b11-938d163ee055",
+        "tool": "image_edit",
+        "toolCallId": "call-1e035245-9be3-4cec-878e-a13a365ff171-0",
+        "transcript": {
+          "sha256": "79f27b2122c2ee862966aa79295f8df9a18a28c8824d7c20f0a73832aa6d42e1",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/panel-06-refine.run.json",
+          "sha256": "6b3cde664ec0f778d768df443fb670ecf6003026a6a75e18790cbb96ca99a799"
+        },
+        "sourceMedia": null,
+        "outputSha256": "abcf3ed7f4dbe37bd97b36f0e8ce6118f645a6ab4784553063efcfbd6456901f",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "panel-07-the-tapestry-complete",
+      "role": "Panel 07 · The Tapestry Complete",
+      "path": ".da/media-staging/panel-07-the-tapestry-complete.webp",
+      "route": "/media/tapestry/panel-07-the-tapestry-complete.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 186880,
+      "sha256": "37be7c2c6578956ce4bf562badce4ea0a30eb11d18e82c83c767f278db641e63",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/panel-07-the-tapestry-complete.collector.json",
+        "sha256": "8f7a84ac6f676911b4c9d0782c1675ff957f182e87e5041d92dad4585eb94310",
+        "sessionId": "019f8096-9a19-70e2-b01d-f23764720e87",
+        "tool": "image_edit",
+        "toolCallId": "call-dcbf84b9-47e7-45cb-a71f-c2bdbc1b7467-0",
+        "transcript": {
+          "sha256": "33cda6c9f50d59867bdfd5ddfdc52814977853785de0dc958af1fec774e304bb",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/panel-07.run.json",
+          "sha256": "a3b7c9417bc21f371b74b1788f9c495b93481fc3cee80fd313ac8bd0b07dadf7"
+        },
+        "sourceMedia": null,
+        "outputSha256": "37be7c2c6578956ce4bf562badce4ea0a30eb11d18e82c83c767f278db641e63",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "about-origin",
+      "role": "About · Origin plate",
+      "path": ".da/media-staging/about-origin.webp",
+      "route": "/media/tapestry/about-origin.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 165006,
+      "sha256": "33bfec002d73dcde0057077a6de0ca628eda44be826287da97ca962c8debe15c",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/about-origin.collector.json",
+        "sha256": "abc35d8be27981bff44c509b181d4660a3477580d64e19ae0ae94d181b23fd12",
+        "sessionId": "019f8096-f39e-7d91-93d5-f6a24794a075",
+        "tool": "image_gen",
+        "toolCallId": "call-d0db405d-54fc-40c0-81f0-d9b547b7b3ec-0",
+        "transcript": {
+          "sha256": "fef4b4ecf42a31affa324f0bb098aa9b387b0c747de7eeec758183b8e34f030d",
+          "callEventIndex": 2,
+          "resultEventIndex": 4
+        },
+        "receipt": {
+          "path": ".da/media-staging/about-origin.run.json",
+          "sha256": "bf01a33749c5aacbb95de8b3ba7bf7827588a3d2cb486cc7030f6df48e1e3120"
+        },
+        "sourceMedia": null,
+        "outputSha256": "33bfec002d73dcde0057077a6de0ca628eda44be826287da97ca962c8debe15c",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "sources-manuscript",
+      "role": "Sources · Manuscript plate",
+      "path": ".da/media-staging/sources-manuscript.webp",
+      "route": "/media/tapestry/sources-manuscript.webp",
+      "delivery": true,
+      "mime": "image/webp",
+      "bytes": 150270,
+      "sha256": "cce25940f3e29d7d30a500c564450f98ab81f489f5cf71e01383af11e5514471",
+      "width": 2400,
+      "height": 1350,
+      "aspectRatio": 1.7777777777777777,
+      "collector": {
+        "path": ".da/media-staging/sources-manuscript.collector.json",
+        "sha256": "7e8fc09d74308b4389f13a6041d5a0c58e22668fe5f11d1eea01ed8ca265cc59",
+        "sessionId": "019f8097-31fb-7db3-ab9b-f6e1f32bb342",
+        "tool": "image_gen",
+        "toolCallId": "call-3f3b4f2d-67fe-4c77-8e09-e34fa76aa3fa-0",
+        "transcript": {
+          "sha256": "78b7d9d062a79e78cc7c4004f241bb0281d554b37d625a0d8332e50d94dd3d89",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/sources-manuscript.run.json",
+          "sha256": "c9004bf8f454c7cf42ba9e5a50b790febf439bc0e5f95c7db9c849f7f7839f29"
+        },
+        "sourceMedia": null,
+        "outputSha256": "cce25940f3e29d7d30a500c564450f98ab81f489f5cf71e01383af11e5514471",
+        "normalizedWith": "ImageMagick 2400x1350 WebP q88"
+      }
+    },
+    {
+      "name": "the-drift-loop",
+      "role": "Panel 01 · atmospheric hero loop",
+      "path": ".da/media-staging/the-drift-loop.mp4",
+      "route": "/media/tapestry/the-drift-loop.mp4",
+      "delivery": true,
+      "mime": "video/mp4",
+      "bytes": 2111244,
+      "sha256": "111e740cd7eb3eed67ff7bd8813b5a915d027515d5b34d2e3ae18b096c7726a2",
+      "width": 1280,
+      "height": 720,
+      "aspectRatio": 1.7777777777777777,
+      "durationSeconds": 6.041667,
+      "codec": "h264",
+      "container": "mp4",
+      "pixelFormat": "yuv420p",
+      "frameRate": 24,
+      "fastStart": true,
+      "audioStreams": 0,
+      "sourceQualityWarning": "Native Imagine output 736x400 required upscale to delivery size",
+      "collector": {
+        "path": ".da/media-staging/the-drift-loop.collector.json",
+        "sha256": "95bfab847417918db4d01876e0263af3081a38a57987586eddb5dcf75a49b11d",
+        "sessionId": "019f80b9-0bda-7163-9816-67d44b8dd29e",
+        "tool": "image_to_video",
+        "toolCallId": "call-783cf65e-a8e2-437b-ac11-c86de94e8faa-0",
+        "transcript": {
+          "sha256": "693cf3003e8de8b034e6f1c9f578f090140f59b3663a2f4939fbf4e2012ac857",
+          "callEventIndex": 3,
+          "resultEventIndex": 5
+        },
+        "receipt": {
+          "path": ".da/media-staging/the-drift-video-zdr5.run.json",
+          "sha256": "120642c3834d7972d567691316a926d2a1ce4b5b0f221c6d269b02f4d7b0147e"
+        },
+        "sourceMedia": {
+          "width": 736,
+          "height": 400,
+          "aspectRatio": 1.84,
+          "codec": "h264",
+          "pixelFormat": "yuv420p",
+          "qualityWarning": "Native Imagine output 736x400 required upscale to delivery size"
+        },
+        "outputSha256": "99fcb688c1a071a8079369112fbccfe7f9e5e64af20378998699c5628dc3b327",
+        "normalizedWith": "FFmpeg H.264 yuv420p CRF19, Lanczos scale/crop from 736x400 to 1280x720, audio removed, fast-start"
+      },
+      "loop": {
+        "path": ".da/media-staging/the-drift-loop.loop.json",
+        "sha256": "acd782f5b3c239ef1c125bcc7efb8e1c4a770573bf5ffc884b1d12f7719d0c65",
+        "method": "FFmpeg 1s xfade from final motion into a held first frame; H.264 CRF19; audio removed; fast-start",
+        "seamSsim": 0.978654
+      }
+    }
+  ],
+  "videoStatus": "validated",
+  "claims": {
+    "technicalValidation": true,
+    "visualApproval": false,
+    "daUpload": false,
+    "preview": false,
+    "livePublication": false
+  }
+}

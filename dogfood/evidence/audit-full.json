@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "path": "/",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "total": 11
+  },
+  "findings": [
+    {
+      "severity": "pass",
+      "check": "headings",
+      "detail": "9 heading(s), hierarchy ok"
+    },
+    {
+      "severity": "pass",
+      "check": "metadata",
+      "detail": "title: \"Throughline: Outwitting the Devil\""
+    },
+    {
+      "severity": "pass",
+      "check": "links",
+      "detail": "12 link(s): 12 internal, 0 external"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"tapestry-hero\": 8 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"panel-nav\": 7 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"storyboard-panel\": 7 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"storyboard-panel\": 7 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"storyboard-panel\": 7 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"storyboard-panel\": 7 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"storyboard-panel\": 7 row(s), 1 col(s)"
+    },
+    {
+      "severity": "pass",
+      "check": "blocks",
+      "detail": "Block \"storyboard-panel\": 7 row(s), 1 col(s)"
+    }
+  ]
+}
