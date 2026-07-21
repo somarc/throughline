@@ -245,7 +245,9 @@
   text-shadow: 0 2px 16px var(--shadow);
 }
 
-.tapestry-hero-voice cite {
+/* A voice's second paragraph is its attribution (e.g. a cited translation). */
+.tapestry-hero-voice cite,
+.tapestry-hero-voice p:not(.tapestry-hero-voice-label) + p {
   display: block;
   margin-top: 5px;
   color: rgb(207 197 177 / 72%);

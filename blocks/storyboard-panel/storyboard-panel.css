@@ -261,6 +261,19 @@
   line-height: 1.5;
 }
 
+/* A voice's second paragraph is its attribution (e.g. a cited translation). */
+.storyboard-panel-voice cite,
+.storyboard-panel-voice p + p {
+  display: block;
+  margin-top: 5px;
+  color: rgb(207 197 177 / 72%);
+  font-family: var(--label-font-family);
+  font-size: 0.58rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .storyboard-panel-reflection {
   margin-top: 24px;
   border: 1px solid rgb(238 231 216 / 16%);
@@ -292,17 +305,6 @@
 .storyboard-panel.panel-7 .storyboard-panel-reflection {
   border-color: rgb(193 135 120 / 32%);
   background: rgb(193 135 120 / 10%);
-}
-
-.storyboard-panel-voice cite {
-  display: block;
-  margin-top: 5px;
-  color: rgb(207 197 177 / 72%);
-  font-family: var(--label-font-family);
-  font-size: 0.58rem;
-  font-style: normal;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 @media (width < 900px) {
