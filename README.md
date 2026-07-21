@@ -50,9 +50,11 @@ npm run media:validate # after a Grok Imagine production run
 ## Dogfood construction
 
 Throughline is the product-shaped greenfield track for the da-cli 0.6.0
-dogfood run. Git fixtures under `content/` remain upstream of DA. The tracked
-construct uploads approved media first, then content, then previews the pages;
-it never publishes live.
+dogfood run. **DA is the single source of truth for content** — author and
+edit documents in DA (or locally via `da content clone/diff/push`), never as
+git fixtures. The tracked construct recorded the original bootstrap: media
+first, then content, then page previews; it never publishes live. The
+`content/` fixture folder from that bootstrap has been retired.
 
 ```bash
 DA="node /Users/mhess/aem/aem-code/da/da-cli/bin/da.js"

@@ -20,8 +20,12 @@ through-line-sites vision @ 4519f0b
 ## Invariants
 
 - The local source tree at `/Users/mhess/aem/aem-code/da/da-cli` is the DA
-  operator under test.
-- Git fixtures under `content/` remain upstream of DA documents.
+  operator under test. No raw admin-API calls; every content, preview, and
+  audit operation goes through `da`.
+- DA is the single source of truth for content. The `content/` git fixtures
+  used for the original bootstrap are retired; edit documents in DA (or via
+  `da content clone/diff/push`). Evidence files under `dogfood/` keep the
+  historical fixture paths as a record of what was run.
 - Grok generation and DA upload are distinct approval boundaries.
 - Same-project media is uploaded before HTML that references it.
 - `--strict-media-urls` protects content writes from missing assets.
