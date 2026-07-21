@@ -29,7 +29,7 @@
   --link-color: var(--gold-bright);
   --link-hover-color: var(--paper-bright);
   --body-font-family: "Avenir Next", "Helvetica Neue", helvetica, arial, sans-serif;
-  --heading-font-family: "Iowan Old Style", baskerville, "Times New Roman", serif;
+  --heading-font-family: fraunces, "Fraunces Fallback", "Iowan Old Style", baskerville, "Times New Roman", serif;
   --label-font-family: "SFMono-Regular", consolas, "Liberation Mono", monospace;
   --body-font-size-m: 18px;
   --body-font-size-s: 15px;
@@ -341,7 +341,7 @@ main > .section.paper a:any-link {
 }
 
 main > .section.paper blockquote {
-  border-color: #8f6b32;
+  border-color: var(--gold-deep);
   color: #4e3f2e;
 }
 
@@ -377,7 +377,8 @@ main > .section.tapestry-coda {
   place-items: center;
   background:
     radial-gradient(circle at 50% 36%, rgb(214 173 98 / 22%), transparent 28%),
-    linear-gradient(180deg, #171a24, var(--ink));
+    radial-gradient(circle at 50% 78%, rgb(193 135 120 / 11%), transparent 36%),
+    linear-gradient(180deg, #1c1a20, var(--ink));
   text-align: center;
 }
 
@@ -405,6 +406,17 @@ blockquote {
   font-size: clamp(1.4rem, 3vw, 2.4rem);
   font-style: italic;
   line-height: 1.25;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 10px;
+  color: var(--paper-dim);
+  font-family: var(--label-font-family);
+  font-size: var(--body-font-size-xs);
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .article-shell .default-content-wrapper {

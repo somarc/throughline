@@ -13,6 +13,9 @@
   --panel-accent: var(--gold);
   --panel-field: var(--indigo);
 
+  /* Scrim temperature follows the beat: cold ink toward ember, amber, dawn rose. */
+  --panel-scrim: 8 10 18;
+
   position: relative;
   scroll-margin-top: var(--nav-height);
   background: var(--panel-field);
@@ -23,31 +26,37 @@
 .storyboard-panel.panel-2 {
   --panel-accent: #91a5c4;
   --panel-field: #0b1222;
+  --panel-scrim: 9 13 26;
 }
 
 .storyboard-panel.panel-3 {
   --panel-accent: #d9b36b;
   --panel-field: #101728;
+  --panel-scrim: 13 15 27;
 }
 
 .storyboard-panel.panel-4 {
   --panel-accent: #edca82;
   --panel-field: #171927;
+  --panel-scrim: 17 16 24;
 }
 
 .storyboard-panel.panel-5 {
   --panel-accent: #d0a570;
   --panel-field: #151826;
+  --panel-scrim: 23 18 17;
 }
 
 .storyboard-panel.panel-6 {
   --panel-accent: #f0ce78;
-  --panel-field: #201c22;
+  --panel-field: #221d18;
+  --panel-scrim: 28 21 14;
 }
 
 .storyboard-panel.panel-7 {
   --panel-accent: #f3d795;
   --panel-field: #29201e;
+  --panel-scrim: 32 23 21;
 }
 
 .storyboard-panel-stage {
@@ -64,15 +73,15 @@
   z-index: 1;
   inset: 0;
   background:
-    linear-gradient(180deg, rgb(8 10 18 / 8%) 0%, transparent 36%, rgb(8 10 18 / 94%) 100%),
-    linear-gradient(90deg, rgb(8 10 18 / 56%), transparent 74%);
+    linear-gradient(180deg, rgb(var(--panel-scrim) / 8%) 0%, transparent 36%, rgb(var(--panel-scrim) / 94%) 100%),
+    linear-gradient(90deg, rgb(var(--panel-scrim) / 56%), transparent 74%);
   pointer-events: none;
 }
 
 .storyboard-panel.panel-even .storyboard-panel-stage::before {
   background:
-    linear-gradient(180deg, rgb(8 10 18 / 8%) 0%, transparent 36%, rgb(8 10 18 / 94%) 100%),
-    linear-gradient(270deg, rgb(8 10 18 / 56%), transparent 74%);
+    linear-gradient(180deg, rgb(var(--panel-scrim) / 8%) 0%, transparent 36%, rgb(var(--panel-scrim) / 94%) 100%),
+    linear-gradient(270deg, rgb(var(--panel-scrim) / 56%), transparent 74%);
 }
 
 .storyboard-panel-stage::after {
@@ -130,8 +139,8 @@
   padding: clamp(24px, 4vw, 46px);
   border: 1px solid rgb(238 231 216 / 18%);
   background:
-    linear-gradient(135deg, rgb(8 10 18 / 88%), rgb(8 10 18 / 62%)),
-    rgb(8 10 18 / 60%);
+    linear-gradient(135deg, rgb(var(--panel-scrim) / 88%), rgb(var(--panel-scrim) / 62%)),
+    rgb(var(--panel-scrim) / 60%);
   box-shadow: 0 30px 90px rgb(0 0 0 / 35%);
   backdrop-filter: blur(18px) saturate(0.85);
 }
@@ -279,6 +288,23 @@
   font-style: italic;
 }
 
+/* Dawn rose arrives with the finished tapestry. */
+.storyboard-panel.panel-7 .storyboard-panel-reflection {
+  border-color: rgb(193 135 120 / 32%);
+  background: rgb(193 135 120 / 10%);
+}
+
+.storyboard-panel-voice cite {
+  display: block;
+  margin-top: 5px;
+  color: rgb(207 197 177 / 72%);
+  font-family: var(--label-font-family);
+  font-size: 0.58rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 @media (width < 900px) {
   .storyboard-panel-stage {
     display: block;
@@ -339,14 +365,14 @@
 
   .storyboard-panel-stage::before {
     background:
-      linear-gradient(180deg, rgb(8 10 18 / 4%) 0%, transparent 54%, rgb(8 10 18 / 72%) 100%),
-      linear-gradient(90deg, rgb(8 10 18 / 78%) 0%, rgb(8 10 18 / 42%) 43%, transparent 76%);
+      linear-gradient(180deg, rgb(var(--panel-scrim) / 4%) 0%, transparent 54%, rgb(var(--panel-scrim) / 72%) 100%),
+      linear-gradient(90deg, rgb(var(--panel-scrim) / 78%) 0%, rgb(var(--panel-scrim) / 42%) 43%, transparent 76%);
   }
 
   .storyboard-panel.panel-even .storyboard-panel-stage::before {
     background:
-      linear-gradient(180deg, rgb(8 10 18 / 4%) 0%, transparent 54%, rgb(8 10 18 / 72%) 100%),
-      linear-gradient(270deg, rgb(8 10 18 / 78%) 0%, rgb(8 10 18 / 42%) 43%, transparent 76%);
+      linear-gradient(180deg, rgb(var(--panel-scrim) / 4%) 0%, transparent 54%, rgb(var(--panel-scrim) / 72%) 100%),
+      linear-gradient(270deg, rgb(var(--panel-scrim) / 78%) 0%, rgb(var(--panel-scrim) / 42%) 43%, transparent 76%);
   }
 }
 

@@ -21,18 +21,21 @@
 }
 
 .cards .cards-card-body p:first-child {
-  color: #6e4d1e;
-  font-family: var(--label-font-family);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  margin-bottom: 14px;
+  color: #34302a;
+  font-family: var(--heading-font-family);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.05;
+}
+
+.cards .cards-card-body p:first-child strong {
+  font-weight: 400;
 }
 
 .cards .cards-card-body p:not(:first-child) {
-  color: #34302a;
-  font-family: var(--heading-font-family);
-  font-size: clamp(1.35rem, 2.5vw, 2rem);
-  line-height: 1.2;
+  color: #4e463c;
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
 }
 
 .cards .cards-card-image {

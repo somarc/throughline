@@ -19,6 +19,7 @@ export default function decorate(block) {
   const standaloneImage = picture ? null : mediaRow?.querySelector('img');
   const mediaNode = picture || standaloneImage;
   const image = picture?.querySelector('img') || standaloneImage;
+  const description = image?.alt?.trim() || '';
   if (image) {
     image.alt = '';
     image.loading = 'eager';
@@ -47,6 +48,13 @@ export default function decorate(block) {
 
   const kicker = title.previousElementSibling;
   if (kicker?.tagName === 'P') kicker.classList.add('story-hero-kicker');
+
+  if (description) {
+    const artDescription = document.createElement('p');
+    artDescription.className = 'visually-hidden';
+    artDescription.textContent = `Artwork: ${description}`;
+    copy.append(artDescription);
+  }
 
   const media = document.createElement('div');
   media.className = 'story-hero-media';

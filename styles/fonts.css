@@ -1,4 +1,35 @@
 /*
- * Throughline intentionally uses a native editorial type stack.
- * Keeping the stack local avoids a render-blocking font request and protects LCP.
+ * Throughline display face: Fraunces (variable, latin subset, OFL).
+ * Loaded post-LCP via loadFonts(); body/label text stays on the native stack
+ * so no font request ever blocks first paint. "Fraunces Fallback" pins
+ * metric-adjusted Times New Roman underneath to minimize reflow at swap.
  */
+
+@font-face {
+  font-family: Fraunces;
+  font-style: normal;
+  font-weight: 340 600;
+  font-display: swap;
+  src: url("../fonts/fraunces-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Fraunces;
+  font-style: italic;
+  font-weight: 340 600;
+  font-display: swap;
+  src: url("../fonts/fraunces-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Fraunces Fallback";
+  font-style: normal;
+  font-weight: 340 600;
+  src: local("Times New Roman");
+  ascent-override: 94%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 104%;
+}

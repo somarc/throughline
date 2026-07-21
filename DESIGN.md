@@ -51,8 +51,14 @@ New panels recombine these symbols; they do not invent unrelated ones.
 - `/sources` is the single bibliography and attribution home.
 - Native scroll only; no hash router and no scroll-jacking.
 - Desktop gets a quiet chapter rail; mobile gets compact numbered progress.
-- Poster is LCP. Video is progressive, muted, inline, and removed for reduced
-  motion or Save-Data.
+- The rail carries the golden thread: a scroll-derived stroke that draws from
+  deep gold toward bright gold across the seven beats, rendered fully drawn
+  under reduced motion.
+- Scrim and copy-card temperature follow the beat—cold ink under panels 02–04,
+  warming through ember and amber to a dawn-rose cast at panel 07 and the coda.
+- Poster is LCP. Video is progressive, muted, inline, deferred until the page
+  has settled, removed for reduced motion or Save-Data, and carries a visible
+  pause control.
 
 ## Blocks
 
@@ -68,9 +74,11 @@ art. Generated assets contain no baked-in headline, labels, UI, or quotations.
 
 ## Typography
 
-Use a native editorial stack to avoid render-blocking font requests:
+Display type is self-hosted; supporting text stays native so no font request
+ever blocks first paint:
 
-- display: Iowan Old Style / Baskerville / Times fallback
+- display: Fraunces (variable, latin subset, loaded post-LCP with a
+  metric-adjusted Times fallback) over Iowan Old Style / Baskerville / Times
 - body: Avenir Next / Helvetica Neue / Arial fallback
 - labels: SF Mono / Consolas / Liberation Mono fallback
 

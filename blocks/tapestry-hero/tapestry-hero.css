@@ -187,6 +187,121 @@
   font-size: 1rem;
 }
 
+.tapestry-hero-voices {
+  max-width: 590px;
+  margin-top: 26px;
+  border-top: 1px solid rgb(238 231 216 / 22%);
+}
+
+.tapestry-hero-voices summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0 4px;
+  color: var(--paper-dim);
+  font-family: var(--label-font-family);
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+}
+
+.tapestry-hero-voices summary::-webkit-details-marker {
+  display: none;
+}
+
+.tapestry-hero-voices[open] summary span:last-child {
+  transform: rotate(45deg);
+}
+
+.tapestry-hero-voice-grid {
+  display: grid;
+  gap: 14px;
+  padding-top: 20px;
+}
+
+.tapestry-hero-voice {
+  border-left: 1px solid rgb(238 231 216 / 25%);
+  padding-left: 14px;
+}
+
+.tapestry-hero-voice-label {
+  margin: 0 0 6px;
+  color: var(--gold-bright);
+  font-family: var(--label-font-family);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tapestry-hero-voice p:not(.tapestry-hero-voice-label) {
+  margin: 0;
+  color: var(--paper-dim);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  text-shadow: 0 2px 16px var(--shadow);
+}
+
+.tapestry-hero-voice cite {
+  display: block;
+  margin-top: 5px;
+  color: rgb(207 197 177 / 72%);
+  font-family: var(--label-font-family);
+  font-size: 0.58rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tapestry-hero-motion-toggle {
+  position: absolute;
+  z-index: 3;
+  bottom: clamp(34px, 6vh, 64px);
+  left: var(--page-gutter);
+  display: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-light);
+  border-radius: 50%;
+  padding: 0;
+  background: rgb(8 10 18 / 55%);
+  color: var(--paper-dim);
+  font-size: 0.55rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition:
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.tapestry-hero-motion-toggle:hover {
+  border-color: var(--gold-bright);
+  color: var(--paper-bright);
+}
+
+.tapestry-hero-motion-toggle::before {
+  content: "❚❚";
+  letter-spacing: 0.08em;
+}
+
+.tapestry-hero-motion-toggle[data-state="paused"]::before {
+  content: "▶";
+  font-size: 0.7rem;
+}
+
+.tapestry-hero.has-video .tapestry-hero-motion-toggle {
+  display: grid;
+}
+
+.tapestry-hero.video-error .tapestry-hero-motion-toggle,
+.tapestry-hero.video-suppressed .tapestry-hero-motion-toggle {
+  display: none;
+}
+
 .tapestry-hero-content > * {
   opacity: 0;
   transform: translateY(18px);
@@ -212,8 +327,7 @@
   transition-delay: 320ms;
 }
 
-.tapestry-hero.is-ready .tapestry-hero-content > :nth-child(5),
-.tapestry-hero.is-ready .tapestry-hero-content > :nth-child(6) {
+.tapestry-hero.is-ready .tapestry-hero-content > :nth-child(n+5) {
   transition-delay: 430ms;
 }
 
@@ -224,8 +338,13 @@
 
   .tapestry-hero-deck,
   .tapestry-hero-insight,
+  .tapestry-hero-voices,
   .tapestry-hero-actions {
     margin-left: 9%;
+  }
+
+  .tapestry-hero-voice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -244,6 +363,7 @@
 
   .tapestry-hero-deck,
   .tapestry-hero-insight,
+  .tapestry-hero-voices,
   .tapestry-hero-actions {
     margin-left: 38%;
   }
@@ -267,7 +387,8 @@
     margin-top: 22px;
   }
 
-  .tapestry-hero-insight {
+  .tapestry-hero-insight,
+  .tapestry-hero-voices {
     display: none;
   }
 }

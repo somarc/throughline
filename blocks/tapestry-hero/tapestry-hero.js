@@ -1,4 +1,5 @@
 const VIDEO_PATTERN = /\.(mp4|webm|ogg)(?:[?#].*)?$/i;
+const VOICES = new Set(['hill', 'stoic', 'michael', 'literary']);
 
 function removeMediaLink(link) {
   const paragraph = link.closest('p');
@@ -19,13 +20,45 @@ function cleanEmptyRows(block) {
   });
 }
 
+function activateVideo(block, video, src) {
+  video.src = src;
+  video.autoplay = true;
+  video.addEventListener('canplay', () => {
+    video.play().catch(() => block.classList.add('video-paused'));
+    block.classList.add('video-ready');
+  }, { once: true });
+  video.addEventListener('error', () => block.classList.add('video-error'));
+}
+
+function createMotionToggle(block, video) {
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'tapestry-hero-motion-toggle';
+  toggle.dataset.state = 'playing';
+  toggle.setAttribute('aria-label', 'Pause background motion');
+  toggle.addEventListener('click', () => {
+    if (video.paused) {
+      video.play().catch(() => {});
+      block.classList.remove('video-paused');
+      toggle.dataset.state = 'playing';
+      toggle.setAttribute('aria-label', 'Pause background motion');
+    } else {
+      video.pause();
+      block.classList.add('video-paused');
+      toggle.dataset.state = 'paused';
+      toggle.setAttribute('aria-label', 'Play background motion');
+    }
+  });
+  return toggle;
+}
+
 function extractMedia(block) {
   const videoLink = [...block.querySelectorAll('a[href]')]
     .find((link) => VIDEO_PATTERN.test(link.href));
   const picture = block.querySelector('picture');
   const standaloneImage = picture ? null : block.querySelector('img');
   const posterNode = picture || standaloneImage;
-  if (!posterNode && !videoLink) return { media: null, description: '' };
+  if (!posterNode && !videoLink) return { media: null, description: '', motionToggle: null };
 
   const media = document.createElement('div');
   media.className = 'tapestry-hero-media';
@@ -47,6 +80,7 @@ function extractMedia(block) {
     block.classList.add('has-poster');
   }
 
+  let motionToggle = null;
   if (videoLink) {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const saveData = Boolean(navigator.connection?.saveData);
@@ -61,14 +95,15 @@ function extractMedia(block) {
       video.poster = posterImage.currentSrc || posterImage.src;
     }
     if (!reducedMotion && !saveData) {
-      video.src = videoLink.href;
-      video.autoplay = true;
-      video.addEventListener('canplay', () => {
-        video.play().catch(() => block.classList.add('video-paused'));
-        block.classList.add('video-ready');
-      }, { once: true });
-      video.addEventListener('error', () => block.classList.add('video-error'));
+      // Defer the loop fetch until the page (and the LCP poster) has settled.
+      const start = () => activateVideo(block, video, videoLink.href);
+      if (document.readyState === 'complete') {
+        window.requestAnimationFrame(start);
+      } else {
+        window.addEventListener('load', start, { once: true });
+      }
       block.classList.add('has-video');
+      motionToggle = createMotionToggle(block, video);
     } else {
       block.classList.add('video-suppressed');
     }
@@ -78,7 +113,46 @@ function extractMedia(block) {
 
   block.classList.add('has-media');
   cleanEmptyRows(block);
-  return { media, description };
+  return { media, description, motionToggle };
+}
+
+function extractVoices(block) {
+  const voices = [];
+  [...block.children].forEach((row) => {
+    const cells = [...row.children];
+    if (cells.length < 2) return;
+    const label = cells[0].textContent.trim().toLowerCase().replace(/[^a-z ]/g, '');
+    if (VOICES.has(label)) {
+      voices.push({ label, cell: cells[1] });
+      row.remove();
+    }
+  });
+  return voices;
+}
+
+function createVoices(voices) {
+  if (!voices.length) return null;
+  const details = document.createElement('details');
+  details.className = 'tapestry-hero-voices';
+
+  const summary = document.createElement('summary');
+  summary.innerHTML = '<span>Read across the voices</span><span aria-hidden="true">＋</span>';
+  details.append(summary);
+
+  const grid = document.createElement('div');
+  grid.className = 'tapestry-hero-voice-grid';
+  voices.forEach(({ label, cell }) => {
+    const voice = document.createElement('div');
+    voice.className = `tapestry-hero-voice voice-${label}`;
+    const name = document.createElement('p');
+    name.className = 'tapestry-hero-voice-label';
+    name.textContent = label === 'michael' ? 'Michael / Scripture' : label;
+    voice.append(name);
+    while (cell.firstChild) voice.append(cell.firstChild);
+    grid.append(voice);
+  });
+  details.append(grid);
+  return details;
 }
 
 function moveRow(row, destination) {
@@ -109,7 +183,8 @@ function createTitle(row) {
  * @param {HTMLElement} block authored tapestry hero block
  */
 export default function decorate(block) {
-  const { media, description } = extractMedia(block);
+  const { media, description, motionToggle } = extractMedia(block);
+  const voices = extractVoices(block);
   const rows = [...block.children].filter((row) => row.textContent.trim());
 
   const content = document.createElement('div');
@@ -142,7 +217,16 @@ export default function decorate(block) {
   actions.className = 'tapestry-hero-actions';
   moveRow(rows[5], actions);
 
-  content.append(brand, chapter, title, deck, insight, actions);
+  const voicesDetails = createVoices(voices);
+  content.append(
+    brand,
+    chapter,
+    title,
+    deck,
+    insight,
+    ...(voicesDetails ? [voicesDetails] : []),
+    actions,
+  );
 
   if (description) {
     const artDescription = document.createElement('p');
@@ -160,6 +244,11 @@ export default function decorate(block) {
   block.dataset.panel = '1';
   block.setAttribute('role', 'region');
   block.setAttribute('aria-labelledby', title.id);
-  block.replaceChildren(...(media ? [media] : []), content, continuation);
+  block.replaceChildren(
+    ...(media ? [media] : []),
+    content,
+    continuation,
+    ...(motionToggle ? [motionToggle] : []),
+  );
   window.requestAnimationFrame(() => block.classList.add('is-ready'));
 }
