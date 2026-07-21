@@ -1,0 +1,181 @@
+# TRUST BOUNDARY: this tracked YAML executes reviewed local shell commands.
+# It MUST be invoked with root --riverboat-gambler, inspected with --dry-run,
+# and run only in this trusted checkout. It performs no DA write.
+name: throughline-grok-imagine-media
+context:
+  org: somarc
+  repo: throughline
+  branch: feature-throughline-tapestry
+steps:
+  - id: orientation
+    command: status --format json
+
+  - id: toolchain
+    command: 'test -x /Users/mhess/.local/bin/grok && /Users/mhess/.local/bin/grok --version && command -v magick && command -v ffmpeg && command -v ffprobe'
+    depends_on: [orientation]
+    requires_approval: true
+    timeout: 30s
+
+  - id: prepare-staging
+    command: 'rm -rf .da/media-staging && mkdir -p .da/media-staging/raw'
+    depends_on: [toolchain]
+    requires_approval: true
+    timeout: 30s
+
+  - id: imagine-character-lock
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/character-lock.md --output-format json --permission-mode bypassPermissions --tools "image_gen" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/character-lock.run.json'
+    depends_on: [prepare-staging]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-character-lock
+    command: 'node tools/collect-grok-media.cjs image throughline-character-lock image_gen .da/media-staging/character-lock.run.json'
+    depends_on: [imagine-character-lock]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-panel-01
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-01-the-drift.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-01.run.json'
+    depends_on: [collect-character-lock]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-01
+    command: 'node tools/collect-grok-media.cjs image panel-01-the-drift image_edit .da/media-staging/panel-01.run.json'
+    depends_on: [imagine-panel-01]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-panel-02
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-02-the-chains-of-fear.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-02.run.json'
+    depends_on: [collect-panel-01]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-02
+    command: 'node tools/collect-grok-media.cjs image panel-02-the-chains-of-fear image_edit .da/media-staging/panel-02.run.json'
+    depends_on: [imagine-panel-02]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-panel-03
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-03-the-awakening.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-03.run.json'
+    depends_on: [collect-panel-02]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-03
+    command: 'node tools/collect-grok-media.cjs image panel-03-the-awakening image_edit .da/media-staging/panel-03.run.json'
+    depends_on: [imagine-panel-03]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-panel-04
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-04-the-guardian-appears.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-04.run.json'
+    depends_on: [collect-panel-03]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-04
+    command: 'node tools/collect-grok-media.cjs image panel-04-the-guardian-appears image_edit .da/media-staging/panel-04.run.json'
+    depends_on: [imagine-panel-04]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-panel-05
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-05-the-battle-within.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-05.run.json'
+    depends_on: [collect-panel-04]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-05
+    command: 'node tools/collect-grok-media.cjs image panel-05-the-battle-within image_edit .da/media-staging/panel-05.run.json'
+    depends_on: [imagine-panel-05]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-panel-06
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-06-outwitting.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-06.run.json'
+    depends_on: [collect-panel-05]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-06
+    command: 'node tools/collect-grok-media.cjs image panel-06-outwitting image_edit .da/media-staging/panel-06.run.json'
+    depends_on: [imagine-panel-06]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-panel-06-refine
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-06-outwitting-refine.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-06-refine.run.json'
+    depends_on: [collect-panel-06]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-06-refine
+    command: 'node tools/collect-grok-media.cjs image panel-06-outwitting image_edit .da/media-staging/panel-06-refine.run.json'
+    depends_on: [imagine-panel-06-refine]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-panel-07
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/panel-07-the-tapestry-complete.md --output-format json --permission-mode bypassPermissions --tools "image_edit" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/panel-07.run.json'
+    depends_on: [collect-panel-06-refine]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-panel-07
+    command: 'node tools/collect-grok-media.cjs image panel-07-the-tapestry-complete image_edit .da/media-staging/panel-07.run.json'
+    depends_on: [imagine-panel-07]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-about
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/about-origin.md --output-format json --permission-mode bypassPermissions --tools "image_gen" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/about-origin.run.json'
+    depends_on: [collect-panel-07]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-about
+    command: 'node tools/collect-grok-media.cjs image about-origin image_gen .da/media-staging/about-origin.run.json'
+    depends_on: [imagine-about]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-sources
+    command: '/Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/sources-manuscript.md --output-format json --permission-mode bypassPermissions --tools "image_gen" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/sources-manuscript.run.json'
+    depends_on: [collect-about]
+    requires_approval: true
+    timeout: 20m
+
+  - id: collect-sources
+    command: 'node tools/collect-grok-media.cjs image sources-manuscript image_gen .da/media-staging/sources-manuscript.run.json'
+    depends_on: [imagine-sources]
+    requires_approval: true
+    timeout: 2m
+
+  - id: imagine-video
+    command: 'GROK_DISABLE_ZDR_INCOMPATIBLE_TOOLS=1 /Users/mhess/.local/bin/grok --cwd "$PWD" --sandbox throughline-media --prompt-file media/briefs/the-drift-video.md --output-format json --permission-mode bypassPermissions --tools "image_to_video" --disable-web-search --disallowed-tools "Agent,web_search,web_fetch,run_terminal_cmd,read_file,search_replace" --deny "MCPTool(*)" --no-subagents --no-memory --max-turns 5 --verbatim > .da/media-staging/the-drift-video.run.json'
+    depends_on: [collect-sources]
+    requires_approval: true
+    timeout: 30m
+    continue_on_error: true
+
+  - id: collect-video
+    command: 'node tools/collect-grok-media.cjs video the-drift-loop image_to_video .da/media-staging/the-drift-video.run.json --optional'
+    depends_on: [imagine-video]
+    requires_approval: true
+    timeout: 3m
+    continue_on_error: true
+
+  - id: finish-video-loop
+    command: 'node tools/finish-grok-loop.cjs --optional'
+    depends_on: [collect-video]
+    requires_approval: true
+    timeout: 3m
+
+  - id: validate-and-plan
+    command: 'node tools/validate-media.cjs --plan'
+    depends_on: [finish-video-loop]
+    requires_approval: true
+    timeout: 2m

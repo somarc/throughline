@@ -1,0 +1,35 @@
+[
+  {
+    "path": "/",
+    "ownership": "contentbus",
+    "daSource": true,
+    "sourcePath": "/index.html",
+    "preview": 200,
+    "live": 200,
+    "code": 404,
+    "sourceLocation": "markup:https://content.da.live/somarc/throughline/",
+    "staleDaLocation": false
+  },
+  {
+    "path": "/about",
+    "ownership": "contentbus",
+    "daSource": true,
+    "sourcePath": "/about.html",
+    "preview": 200,
+    "live": 404,
+    "code": 404,
+    "sourceLocation": "markup:https://content.da.live/somarc/throughline/about",
+    "staleDaLocation": false
+  },
+  {
+    "path": "/sources",
+    "ownership": "contentbus",
+    "daSource": true,
+    "sourcePath": "/sources.html",
+    "preview": 200,
+    "live": 404,
+    "code": 404,
+    "sourceLocation": "markup:https://content.da.live/somarc/throughline/sources",
+    "staleDaLocation": false
+  }
+]

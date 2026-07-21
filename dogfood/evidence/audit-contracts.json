@@ -1,0 +1,91 @@
+{
+  "prefix": "/",
+  "scannedPages": 5,
+  "blocks": [
+    {
+      "block": "cards",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "fragment",
+      "pages": 0,
+      "source": "autoblock",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "panel-nav",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "story-hero",
+      "pages": 2,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "storyboard-panel",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "tapestry-hero",
+      "pages": 1,
+      "source": "page",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    },
+    {
+      "block": "widget",
+      "pages": 0,
+      "source": "autoblock",
+      "js": 200,
+      "css": 200,
+      "status": "ok",
+      "localChanges": 0
+    }
+  ],
+  "autoblocks": [
+    "fragment",
+    "widget"
+  ],
+  "missing": [],
+  "errors": [],
+  "localGit": {
+    "available": true,
+    "root": "/Users/mhess/marc_projects/throughline",
+    "branch": "feature-throughline-tapestry",
+    "upstream": "origin/feature-throughline-tapestry",
+    "ahead": 0,
+    "unpushedBlockChanges": [],
+    "trackedAuthoredContent": [
+      "content/about.html",
+      "content/footer.html",
+      "content/index.html",
+      "content/nav.html",
+      "content/sources.html"
+    ],
+    "detail": "No local unpushed changes found for authored block implementations."
+  }
+}

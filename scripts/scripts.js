@@ -143,6 +143,87 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies authored section metadata before the boilerplate wraps section content.
+ * @param {HTMLElement} main The main element
+ */
+function applySectionMetadata(main) {
+  main.querySelectorAll(':scope > div').forEach((section) => {
+    const metadata = section.querySelector(':scope > .section-metadata');
+    if (!metadata) return;
+    [...metadata.children].forEach((row) => {
+      const cells = [...row.children];
+      const key = cells[0]?.textContent.trim().toLowerCase();
+      const value = cells[1]?.textContent.trim();
+      if ((key === 'style' || key === 'class') && value) {
+        value.split(',').map((name) => name.trim()).filter(Boolean)
+          .forEach((name) => section.classList.add(name));
+      }
+    });
+    metadata.remove();
+  });
+}
+
+function setMeta(name, content, property = false) {
+  if (!content) return;
+  const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+  let meta = document.head.querySelector(selector);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(property ? 'property' : 'name', name);
+    document.head.append(meta);
+  }
+  meta.content = content;
+}
+
+/**
+ * Keeps checked-in fixtures useful in local render loops while matching the
+ * metadata tags EDS creates from the same block in preview.
+ * @param {HTMLElement} main The main element
+ */
+function applyPageMetadata(main) {
+  main.querySelectorAll(':scope > div > .metadata').forEach((metadata) => {
+    const values = {};
+    [...metadata.children].forEach((row) => {
+      const cells = [...row.children];
+      const key = cells[0]?.textContent.trim().toLowerCase();
+      const value = cells[1]?.textContent.trim();
+      if (key && value) values[key] = value;
+    });
+
+    if (values.title) document.title = values.title;
+    setMeta('description', values.description);
+    setMeta('og:title', values.title, true);
+    setMeta('og:description', values.description, true);
+    setMeta('og:image', values.image, true);
+    if (values.template) document.body.classList.add(values.template);
+    if (values.theme) document.body.classList.add(values.theme);
+
+    const section = metadata.parentElement;
+    metadata.remove();
+    if (section && !section.textContent.trim() && !section.children.length) section.remove();
+  });
+}
+
+/**
+ * Adds the small amount of document chrome that must not depend on authored blocks.
+ * @param {Document} doc The current document
+ */
+function decoratePageSemantics(doc) {
+  const main = doc.querySelector('main');
+  if (!main) return;
+  main.id = main.id || 'main-content';
+  if (main.querySelector('.tapestry-hero')) doc.body.classList.add('tapestry-page');
+
+  if (!doc.querySelector('.skip-link')) {
+    const skip = doc.createElement('a');
+    skip.className = 'skip-link';
+    skip.href = `#${main.id}`;
+    skip.textContent = 'Skip to main content';
+    doc.body.prepend(skip);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -150,6 +231,8 @@ function decorateButtons(main) {
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  applyPageMetadata(main);
+  applySectionMetadata(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
@@ -162,6 +245,7 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  decoratePageSemantics(doc);
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);

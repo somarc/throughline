@@ -1,0 +1,177 @@
+.panel-nav-container {
+  position: relative;
+  z-index: 45;
+  height: 0;
+  padding: 0;
+}
+
+.panel-nav-container .panel-nav-wrapper {
+  width: 100%;
+  max-width: unset;
+  padding: 0;
+}
+
+.panel-nav {
+  height: 0;
+}
+
+.panel-nav-rail {
+  --thread-progress: 0;
+
+  position: fixed;
+  z-index: 45;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  border: 1px solid rgb(238 231 216 / 18%);
+  border-radius: 999px;
+  padding: 8px 10px;
+  background: rgb(8 10 18 / 76%);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 35%);
+  backdrop-filter: blur(18px) saturate(0.8);
+}
+
+/* The golden thread: drawn by scroll position, spark to woven line. */
+.panel-nav-thread {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  left: 24px;
+  height: 1px;
+  transform: translateY(-50%);
+  background: rgb(238 231 216 / 12%);
+  pointer-events: none;
+}
+
+.panel-nav-thread-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold) 55%, var(--gold-bright));
+  box-shadow: 0 0 12px rgb(214 173 98 / 55%);
+  transform: scaleX(var(--thread-progress));
+  transform-origin: left center;
+}
+
+.panel-nav-rail ol {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.panel-nav-rail li {
+  margin: 0;
+}
+
+.panel-nav-rail a:any-link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--paper-dim);
+  font-family: var(--label-font-family);
+  font-size: 0.62rem;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.panel-nav-rail a:hover,
+.panel-nav-rail a[aria-current="step"] {
+  border-color: var(--gold);
+  background: rgb(214 173 98 / 12%);
+  color: var(--gold-bright);
+}
+
+.panel-nav-name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (width >= 900px) {
+  .panel-nav-rail {
+    inset: 50% auto auto 18px;
+    transform: translateY(-50%);
+    border-radius: 18px;
+    padding: 10px 8px;
+  }
+
+  .panel-nav-thread {
+    inset: 16px auto 16px 50%;
+    width: 1px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .panel-nav-thread-fill {
+    background: linear-gradient(180deg, var(--gold-deep), var(--gold) 55%, var(--gold-bright));
+    transform: scaleY(var(--thread-progress));
+    transform-origin: center top;
+  }
+
+  .panel-nav-rail ol {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .panel-nav-rail a:any-link {
+    width: 38px;
+    height: 38px;
+  }
+
+  .panel-nav-rail a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 8px);
+    transform: translateY(-50%);
+    width: 0;
+    border-top: 1px solid var(--gold);
+    transition: width 180ms ease;
+  }
+
+  .panel-nav-rail a:hover::after,
+  .panel-nav-rail a:focus-visible::after,
+  .panel-nav-rail a[aria-current="step"]::after {
+    width: 18px;
+  }
+
+  .panel-nav-name {
+    top: 50%;
+    left: calc(100% + 34px);
+    transform: translateY(-50%) translateX(-6px);
+    width: max-content;
+    height: auto;
+    overflow: visible;
+    border: 1px solid rgb(238 231 216 / 18%);
+    padding: 7px 10px;
+    background: rgb(8 10 18 / 88%);
+    color: var(--paper);
+    clip-path: none;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .panel-nav-rail a:hover .panel-nav-name,
+  .panel-nav-rail a:focus-visible .panel-nav-name {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}

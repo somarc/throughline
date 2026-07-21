@@ -1,0 +1,87 @@
+[
+  {
+    "path": "/about.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-20T18:41:53.745Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-20T18:41:56.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /about.html"
+    ],
+    "previewUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.page/about",
+    "liveUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.live/about"
+  },
+  {
+    "path": "/footer.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-20T18:41:46.501Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-20T18:41:48.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-20T13:34:01.000Z",
+    "liveFreshness": "stale",
+    "verdict": "live-stale",
+    "next": [
+      "da --commit publish page /footer.html"
+    ],
+    "previewUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.page/footer",
+    "liveUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.live/footer"
+  },
+  {
+    "path": "/index.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-20T18:41:49.925Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-20T18:41:52.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-20T13:34:01.000Z",
+    "liveFreshness": "stale",
+    "verdict": "live-stale",
+    "next": [
+      "da --commit publish page /index.html"
+    ],
+    "previewUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.page/",
+    "liveUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.live/"
+  },
+  {
+    "path": "/nav.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-20T18:41:43.182Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-20T18:41:45.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 200,
+    "liveLastModified": "2026-07-20T13:34:01.000Z",
+    "liveFreshness": "stale",
+    "verdict": "live-stale",
+    "next": [
+      "da --commit publish page /nav.html"
+    ],
+    "previewUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.page/nav",
+    "liveUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.live/nav"
+  },
+  {
+    "path": "/sources.html",
+    "sourceStatus": 200,
+    "sourceLastModified": "2026-07-20T18:41:57.307Z",
+    "previewStatus": 200,
+    "previewLastModified": "2026-07-20T18:41:59.000Z",
+    "previewFreshness": "fresh",
+    "liveStatus": 404,
+    "liveLastModified": "",
+    "liveFreshness": "unknown",
+    "verdict": "preview-only",
+    "next": [
+      "da --commit publish page /sources.html"
+    ],
+    "previewUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.page/sources",
+    "liveUrl": "https://feature-throughline-tapestry--throughline--somarc.aem.live/sources"
+  }
+]

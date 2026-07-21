@@ -1,22 +1,46 @@
 .cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1px;
+  margin: 0;
+  border: 1px solid rgb(26 26 24 / 18%);
+  padding: 0;
+  background: rgb(26 26 24 / 18%);
+  list-style: none;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  min-height: 260px;
+  border: 0;
+  padding: clamp(24px, 4vw, 40px);
+  background: var(--paper);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 0;
+}
+
+.cards .cards-card-body p:first-child {
+  margin-bottom: 14px;
+  color: #34302a;
+  font-family: var(--heading-font-family);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.05;
+}
+
+.cards .cards-card-body p:first-child strong {
+  font-weight: 400;
+}
+
+.cards .cards-card-body p:not(:first-child) {
+  color: #4e463c;
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
 }
 
 .cards .cards-card-image {
+  margin: calc(clamp(24px, 4vw, 40px) * -1);
+  margin-bottom: 24px;
   line-height: 0;
 }
 

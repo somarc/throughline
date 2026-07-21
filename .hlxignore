@@ -5,3 +5,7 @@ LICENSE
 package.json
 package-lock.json
 test/*
+dogfood/*
+pipelines/*
+tools/*
+media/briefs/*

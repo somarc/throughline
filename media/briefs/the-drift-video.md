@@ -1,0 +1,7 @@
+# Grok Imagine task — The Drift hero loop
+
+Use the only available visual tool, `image_to_video`, exactly once. Use `.da/media-staging/panel-01-the-drift.webp` as frame one and the complete visual identity anchor. If `image_to_video` is unavailable, create nothing and report the poster-only result. Do not use any substitute provider, CSS animation, shell, file tool, web, MCP, Git, or DA. Leave the raw video in the session-managed media folder for the reviewed collector.
+
+Animate one restrained six-second 16:9 shot. The camera makes a barely perceptible lateral drift with shallow parallax. Storm cloud and sea move slowly; one dim lightning breath reveals depth without a flash. The intact chains shift by only a few pixels with the water. Saint Michael's distant sword flame and the fixed-star spark pulse once, very gently. The protagonist remains stable and recognizable; no new action occurs and no new object or character enters.
+
+Preserve the broad dark left/lower typography safe zone from the still. Make the final frame visually compatible with the first for an unobtrusive near-seamless website loop. No hard cut, camera shake, zoom rush, lip movement, text, logo, watermark, UI, morphing face or hands, flashing, audio, gore, or increased Devil detail. End after the single successful `image_to_video` call or the explicit tool-unavailable report.

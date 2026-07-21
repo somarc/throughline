@@ -1,0 +1,254 @@
+{
+  "ok": true,
+  "operation": "pipeline.run",
+  "target": "dogfood/construct.yaml",
+  "data": {
+    "runId": "59162fbc",
+    "name": "throughline-tapestry-construct",
+    "status": "completed",
+    "startedAt": "2026-07-20T18:41:09.162Z",
+    "completedAt": "2026-07-20T18:42:00.956Z",
+    "steps": {
+      "put-panel-01": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:10.538Z"
+      },
+      "preview-panel-01": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:12.762Z"
+      },
+      "put-panel-02": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:13.858Z"
+      },
+      "preview-panel-02": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:15.884Z"
+      },
+      "put-panel-03": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:16.983Z"
+      },
+      "preview-panel-03": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:19.097Z"
+      },
+      "put-panel-04": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:20.143Z"
+      },
+      "preview-panel-04": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:22.262Z"
+      },
+      "put-panel-05": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:23.275Z"
+      },
+      "preview-panel-05": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:25.248Z"
+      },
+      "put-panel-06": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:26.357Z"
+      },
+      "preview-panel-06": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:28.257Z"
+      },
+      "put-panel-07": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:29.358Z"
+      },
+      "preview-panel-07": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:31.288Z"
+      },
+      "put-about-plate": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:32.445Z"
+      },
+      "preview-about-plate": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:34.391Z"
+      },
+      "put-sources-plate": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:35.511Z"
+      },
+      "preview-sources-plate": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:37.539Z"
+      },
+      "put-hero-loop": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:39.218Z"
+      },
+      "preview-hero-loop": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:41.475Z"
+      },
+      "put-nav": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:43.288Z"
+      },
+      "preview-nav": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:45.052Z"
+      },
+      "put-footer": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:46.603Z"
+      },
+      "preview-footer": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:48.439Z"
+      },
+      "put-index": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:50.053Z"
+      },
+      "preview-index": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:52.265Z"
+      },
+      "put-about": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:53.826Z"
+      },
+      "preview-about": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:55.881Z"
+      },
+      "put-sources": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:57.405Z"
+      },
+      "preview-sources": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:59.412Z"
+      },
+      "explain-index": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:41:59.920Z"
+      },
+      "explain-about": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:42:00.435Z"
+      },
+      "explain-sources": {
+        "status": "completed",
+        "exitCode": 0,
+        "attempts": 1,
+        "retries": 0,
+        "completedAt": "2026-07-20T18:42:00.955Z"
+      }
+    }
+  },
+  "warnings": [],
+  "next": [
+    "da --format json pipeline status 59162fbc"
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/mhess/marc_projects/throughline/.da/runs/59162fbc/result.json"
+    }
+  ]
+}

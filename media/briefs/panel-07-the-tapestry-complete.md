@@ -1,0 +1,9 @@
+# Grok Imagine task — Panel 07 · The Tapestry Complete
+
+Use `image_edit` exactly once with `.da/media-staging/throughline-character-lock.webp` as the identity reference. Preserve the same protagonist and Saint Michael. Request 16:9. No other tool or file action; leave raw output in the managed `images/` folder.
+
+Create a wide, earned finale. The same free protagonist walks a sunlit path beneath a clear dawn sky, calm and purposeful. The same Michael remains present farther behind and to the side after battle, sword no longer raised. One continuous golden thread weaves through the composition and recognizable emblematic forms: an open book with no readable writing, Michael's flaming sword, a small citadel-column, an inner forge, and a distant enclosed garden. The fixed star remains faintly visible in daylight. A thin powerless shadow lingers under a far bridge and nowhere else.
+
+One beat: all metaphors become one visible throughline. Chains absent; sea only a calm distant memory; thread continuous; sword an emblem and presence; Devil residual. Warm candle gold, limestone, dawn rose, and clear blue now lead, while enough indigo remains for series identity. Keep the protagonist and golden weave central enough for square social cropping.
+
+Dramatic symbolic oil-painting cinematic still, Renaissance chiaroscuro softened into modern dawn film light, painterly brush presence, atmospheric depth, subtle grain, sacred seriousness without kitsch. No readable text, logo, label, watermark, halo overload, fantasy-game ending, purple neon, plastic 3D, or extra characters. End after one successful `image_edit` call.
