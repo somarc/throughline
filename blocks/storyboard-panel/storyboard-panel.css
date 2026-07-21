@@ -261,6 +261,17 @@
   line-height: 1.5;
 }
 
+.storyboard-panel-reflection {
+  margin-top: 24px;
+  border: 1px solid rgb(238 231 216 / 16%);
+  padding: 16px 18px;
+  background: rgb(214 173 98 / 7%);
+}
+
+.storyboard-panel-reflection p {
+  margin: 0;
+}
+
 /* A voice's second paragraph is its attribution (e.g. a cited translation). */
 .storyboard-panel-voice cite,
 .storyboard-panel-voice p + p {
@@ -272,17 +283,6 @@
   font-style: normal;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.storyboard-panel-reflection {
-  margin-top: 24px;
-  border: 1px solid rgb(238 231 216 / 16%);
-  padding: 16px 18px;
-  background: rgb(214 173 98 / 7%);
-}
-
-.storyboard-panel-reflection p {
-  margin: 0;
 }
 
 .storyboard-panel-reflection p:first-child {
