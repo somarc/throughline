@@ -245,10 +245,12 @@
   text-shadow: 0 2px 16px var(--shadow);
 }
 
-/* A voice's second paragraph is its attribution (e.g. a cited translation). */
+/* A voice's citation links to /sources and reads as a muted attribution line. */
 .tapestry-hero-voice cite,
-.tapestry-hero-voice p:not(.tapestry-hero-voice-label) + p {
+.tapestry-hero-voice p:not(.tapestry-hero-voice-label) + p,
+.tapestry-hero-voice a:any-link {
   display: block;
+  width: fit-content;
   margin-top: 5px;
   color: rgb(207 197 177 / 72%);
   font-family: var(--label-font-family);
@@ -256,6 +258,14 @@
   font-style: normal;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.tapestry-hero-voice a:any-link {
+  text-decoration-color: rgb(207 197 177 / 35%);
+}
+
+.tapestry-hero-voice a:hover {
+  color: var(--gold-bright);
 }
 
 .tapestry-hero-motion-toggle {
